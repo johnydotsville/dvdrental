@@ -3,7 +3,7 @@
              xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence
              https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd"
              version="3.0">
-    <persistence-unit name="dvdrentalPU">
+    <persistence-unit name="dvdrental-pu">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <properties>
             <property name="jakarta.persistence.jdbc.driver" value="org.postgresql.Driver" />
