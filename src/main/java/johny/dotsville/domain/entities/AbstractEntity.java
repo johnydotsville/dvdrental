@@ -17,5 +17,5 @@ public abstract class AbstractEntity {
     @Temporal(TemporalType.TIMESTAMP)
     @org.hibernate.annotations.Generated(
             value = org.hibernate.annotations.GenerationTime.ALWAYS)
-    private LocalDateTime lastUpdate;
+    protected LocalDateTime lastUpdate;
 }
