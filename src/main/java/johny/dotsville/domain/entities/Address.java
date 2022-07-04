@@ -1,4 +1,4 @@
 package johny.dotsville.domain.entities;
 
-public class Address {
+public class Address extends AbstractEntity {
 }

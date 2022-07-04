@@ -1,4 +1,4 @@
 package johny.dotsville.domain.entities;
 
-public class Category {
+public class Category extends AbstractEntity {
 }

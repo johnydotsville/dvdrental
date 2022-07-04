@@ -1,4 +1,4 @@
 package johny.dotsville.domain.entities;
 
-public class Store {
+public class Store extends AbstractEntity {
 }

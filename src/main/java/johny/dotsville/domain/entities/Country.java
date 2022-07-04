@@ -1,4 +1,4 @@
 package johny.dotsville.domain.entities;
 
-public class Country {
+public class Country extends AbstractEntity {
 }

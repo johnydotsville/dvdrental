@@ -1,4 +1,4 @@
 package johny.dotsville.domain.entities;
 
-public class Actor {
+public class Actor extends AbstractEntity {
 }
