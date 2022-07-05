@@ -11,15 +11,14 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
+
+import java.util.Objects;
 
 @Entity
 @Table(name = "city")
-@Getter @Setter @NoArgsConstructor @ToString @EqualsAndHashCode
+@Getter @Setter
 public class City extends AbstractEntity {
     @Id
     @Column(name = "city_id")
@@ -27,8 +26,22 @@ public class City extends AbstractEntity {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "city_id_gen")
     private Long id;
     @Column(name = "city")
-    private String city;
-    @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
+    private String name;
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     @JoinColumn(name = "country_id", nullable = false)
     private Country country;
+    @Override
+    public String toString() {
+        return name;
+    }
+    @Override
+    public boolean equals(Object object) {
+        if (!super.equals(object)) return false;
+        City city = (City) object;
+        return Objects.equals(id, city.id);
+    }
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name);
+    }
 }
