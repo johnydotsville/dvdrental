@@ -7,15 +7,16 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.util.Objects;
+
 @Entity
 @Table(name = "language")
-@Getter @Setter @NoArgsConstructor @ToString @EqualsAndHashCode
+@Getter @Setter @NoArgsConstructor @ToString
 public class Language extends AbstractEntity {
     @Id
     @Column(name = "language_id")
@@ -24,4 +25,16 @@ public class Language extends AbstractEntity {
     private Long id;
     @Column(name = "name")
     private String name;
+
+    @Override
+    public boolean equals(Object object) {
+        if (!super.equals(object)) return false;
+        Language lang = (Language) object;
+        return Objects.equals(id, lang.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), id, name);
+    }
 }
