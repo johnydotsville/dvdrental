@@ -22,7 +22,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "film")
-@Getter @Setter @NoArgsConstructor @ToString
+@Getter @Setter
 public class Film extends AbstractEntity {
     @Id
     @Column(name = "film_id")

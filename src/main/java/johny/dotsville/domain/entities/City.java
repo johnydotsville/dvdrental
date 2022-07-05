@@ -42,6 +42,6 @@ public class City extends AbstractEntity {
     }
     @Override
     public int hashCode() {
-        return Objects.hash(id, name);
+        return Objects.hash(super.hashCode(), id, name);
     }
 }

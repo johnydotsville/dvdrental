@@ -10,9 +10,7 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
 
 import java.util.HashSet;
 import java.util.Objects;
@@ -20,7 +18,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "category")
-@Getter @Setter @NoArgsConstructor @ToString
+@Getter @Setter
 public class Category extends AbstractEntity {
     @Id
     @Column(name = "category_id")

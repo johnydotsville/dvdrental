@@ -17,7 +17,7 @@ import java.io.Serializable;
 
 @Entity
 @Table(name = "film_category")
-@Getter @Setter @ToString @EqualsAndHashCode
+@Getter @Setter
 public class FilmCategory extends AbstractEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "film_id", insertable = false, updatable = false)
@@ -41,7 +41,7 @@ public class FilmCategory extends AbstractEntity {
     }
 
     @Embeddable
-    @Getter @Setter @EqualsAndHashCode
+    @Getter @Setter
     public static class Id implements Serializable {
         @Column(name = "film_id")
         private Long filmId;
