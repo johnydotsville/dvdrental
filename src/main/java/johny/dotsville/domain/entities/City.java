@@ -1,5 +1,6 @@
 package johny.dotsville.domain.entities;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -22,12 +23,12 @@ import lombok.ToString;
 public class City extends AbstractEntity {
     @Id
     @Column(name = "city_id")
-    @SequenceGenerator(name = "city_id_gen", sequenceName = "city_category_id_seq", allocationSize = 1)
+    @SequenceGenerator(name = "city_id_gen", sequenceName = "city_city_id_seq", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "city_id_gen")
     private Long id;
     @Column(name = "city")
     private String city;
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
     @JoinColumn(name = "country_id", nullable = false)
     private Country country;
 }
