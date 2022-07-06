@@ -12,10 +12,9 @@ import jakarta.persistence.OneToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
 
+import java.time.Year;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
@@ -29,13 +28,43 @@ public class Film extends AbstractEntity {
     @SequenceGenerator(name = "film_id_gen", sequenceName = "film_film_id_seq", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "film_id_gen")
     private Long id;
+
     @Column(name = "title")
     private String title;
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "film")
-    private Set<FilmCategory> filmCategories = new HashSet<>();
+
+    @Column(name = "description")
+    private String description;
+
+    @Column(name = "release_year")
+    private Year releaseYear;
+
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "language_id")
     private Language language;
+
+    @Column(name = "rental_duration")
+    private int rentalDuration;
+
+    @Column(name = "rental_rate")
+    private double rentalRate;
+
+    @Column(name = "length")
+    private int length;
+
+    @Column(name = "replacement_cost")
+    private double replacementCost;
+
+    @Column(name = "rating")
+    private String rating;
+
+    @Column(name = "special_features")
+    private String[] specialFeatures;
+
+    @Column(name = "fulltext")
+    private String fulltext;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "film")
+    private Set<FilmCategory> filmCategories = new HashSet<>();
 
     @Override
     public boolean equals(Object object) {
