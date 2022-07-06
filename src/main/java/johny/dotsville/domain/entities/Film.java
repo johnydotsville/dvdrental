@@ -64,7 +64,10 @@ public class Film extends AbstractEntity {
     private String fulltext;
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "film")
-    private Set<FilmCategory> filmCategories = new HashSet<>();
+    private Set<FilmCategory> filmCategory = new HashSet<>();
+
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "film")
+    private Set<FilmActor> filmActor = new HashSet<>();
 
     @Override
     public boolean equals(Object object) {
