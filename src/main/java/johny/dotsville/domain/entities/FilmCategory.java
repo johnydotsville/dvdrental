@@ -14,6 +14,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 @Entity
 @Table(name = "film_category")
@@ -22,13 +23,16 @@ public class FilmCategory extends AbstractEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "film_id", insertable = false, updatable = false)
     private Film film;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id", insertable = false, updatable = false)
     private Category category;
+
     @EmbeddedId
     private Id id = new Id();
 
     private FilmCategory() { }
+
     public FilmCategory(Film film, Category category) {
         this.film = film;
         this.category = category;
@@ -45,7 +49,22 @@ public class FilmCategory extends AbstractEntity {
     public static class Id implements Serializable {
         @Column(name = "film_id")
         private Long filmId;
+
         @Column(name = "category_id")
         private Long categoryId;
+
+        @Override
+        public boolean equals(Object object) {
+            if (object == null || this.getClass() != object.getClass()) return false;
+            if (this == object) return true;
+            Id id = (Id) object;
+            return Objects.equals(filmId, id.filmId)
+                    && Objects.equals(categoryId, id.categoryId);
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(filmId, categoryId);
+        }
     }
 }

@@ -26,20 +26,25 @@ public class Country extends AbstractEntity {
     @SequenceGenerator(name = "country_id_gen", sequenceName = "country_country_id_seq", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "country_id_gen")
     private Long id;
+
     @Column(name = "country")
     private String name;
+
     @OneToMany(mappedBy = "country", cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
     private Set<City> cities = new HashSet<>();
+
     @Override
     public String toString() {
         return name;
     }
+
     @Override
     public boolean equals(Object object) {
         if (!super.equals(object)) return false;
         Country country = (Country) object;
         return Objects.equals(id, country.id);
     }
+
     @Override
     public int hashCode() {
         return Objects.hash(super.hashCode(), id, name);

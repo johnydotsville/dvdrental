@@ -21,6 +21,7 @@ public class Language extends AbstractEntity {
     @SequenceGenerator(name = "language_id_gen", sequenceName = "language_language_id_seq", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "language_id_gen")
     private Long id;
+
     @Column(name = "name")
     private String name;
 
