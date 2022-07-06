@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 @MappedSuperclass
 @Getter @ToString
 public abstract class AbstractEntity {
-    @Column(name = "last_update", insertable = true, updatable = true)
+    @Column(name = "last_update", insertable = false, updatable = false)
     @Temporal(TemporalType.TIMESTAMP)
     @org.hibernate.annotations.Generated(
             value = org.hibernate.annotations.GenerationTime.ALWAYS)
