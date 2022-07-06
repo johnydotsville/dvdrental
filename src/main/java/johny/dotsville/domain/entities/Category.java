@@ -30,7 +30,7 @@ public class Category extends AbstractEntity {
     private String name;
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "category")
-    private Set<FilmCategory> filmCategories = new HashSet<>();
+    private Set<FilmCategory> filmCategory = new HashSet<>();
 
     @Override
     public boolean equals(Object object) {

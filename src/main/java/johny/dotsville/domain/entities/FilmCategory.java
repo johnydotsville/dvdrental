@@ -40,8 +40,8 @@ public class FilmCategory extends AbstractEntity {
         this.id.categoryId = category.getId();
         this.id.filmId = film.getId();
 
-        film.getFilmCategories().add(this);
-        category.getFilmCategories().add(this);
+        film.getFilmCategory().add(this);
+        category.getFilmCategory().add(this);
     }
 
     @Embeddable
