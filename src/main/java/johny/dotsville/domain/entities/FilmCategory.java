@@ -20,11 +20,11 @@ import java.util.Objects;
 @Table(name = "film_category")
 @Getter @Setter
 public class FilmCategory extends AbstractEntity {
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "film_id", insertable = false, updatable = false)
     private Film film;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "category_id", insertable = false, updatable = false)
     private Category category;
 

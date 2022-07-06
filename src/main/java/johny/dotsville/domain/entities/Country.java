@@ -30,7 +30,7 @@ public class Country extends AbstractEntity {
     @Column(name = "country")
     private String name;
 
-    @OneToMany(mappedBy = "country", cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "country", cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     private Set<City> cities = new HashSet<>();
 
     @Override

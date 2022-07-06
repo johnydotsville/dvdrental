@@ -29,7 +29,7 @@ public class City extends AbstractEntity {
     @Column(name = "city")
     private String name;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
     @JoinColumn(name = "country_id", nullable = false)
     private Country country;
 

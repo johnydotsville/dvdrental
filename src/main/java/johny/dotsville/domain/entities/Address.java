@@ -32,7 +32,7 @@ public class Address extends AbstractEntity {
     @Column(name = "district")
     private String district;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "city_id")
     private City city;
 
