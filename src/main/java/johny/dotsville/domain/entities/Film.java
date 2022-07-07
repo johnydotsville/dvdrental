@@ -70,19 +70,20 @@ public class Film extends AbstractEntity {
     private Set<FilmActor> filmActor = new HashSet<>();
 
     @Override
-    public boolean equals(Object object) {
-        if (!super.equals(object)) return false;
-        Film film = (Film) object;
-        return Objects.equals(this.id, film.id);
+    public String toString() {
+        return title;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), id, title);
+        return Objects.hash(super.hashCode(), id);
     }
 
     @Override
-    public String toString() {
-        return title;
+    public boolean equals(Object object) {
+        if (!super.equals(object))
+            return false;
+        Film film = (Film) object;
+        return Objects.equals(id, film.id);
     }
 }

@@ -26,14 +26,15 @@ public class Language extends AbstractEntity {
     private String name;
 
     @Override
-    public boolean equals(Object object) {
-        if (!super.equals(object)) return false;
-        Language lang = (Language) object;
-        return Objects.equals(id, lang.id);
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), id);
     }
 
     @Override
-    public int hashCode() {
-        return Objects.hash(super.hashCode(), id, name);
+    public boolean equals(Object object) {
+        if (!super.equals(object))
+            return false;
+        Language language = (Language) object;
+        return Objects.equals(id, language.id);
     }
 }

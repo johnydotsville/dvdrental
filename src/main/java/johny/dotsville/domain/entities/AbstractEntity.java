@@ -20,9 +20,10 @@ public abstract class AbstractEntity {
 
     @Override
     public boolean equals(Object object) {
-        if (object == null) return false;
-        if (this == object) return true;
-        if (this.getClass() != object.getClass()) return false;
+        if (this == object)
+            return true;
+        if (object == null || this.getClass() != object.getClass())
+            return false;
 
         return true;
     }

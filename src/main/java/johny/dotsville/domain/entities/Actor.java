@@ -6,7 +6,6 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
@@ -38,13 +37,13 @@ public class Actor extends AbstractEntity {
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), id, firstName, lastName);
+        return Objects.hash(super.hashCode(), id);
     }
 
     @Override
     public boolean equals(Object object) {
-        if (this == object) return true;
-        if (this == null || object.getClass() != this.getClass()) return false;
+        if (!super.equals(object))
+            return false;
         Actor actor = (Actor) object;
         return Objects.equals(id, actor.id);
     }

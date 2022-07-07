@@ -15,6 +15,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 @Entity
 @Table(name = "payment")
@@ -44,4 +45,17 @@ public class Payment {
 
     @Column(name = "payment_date")
     private LocalDateTime paymentDate;
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), id);
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        if (!super.equals(object))
+            return false;
+        Payment payment = (Payment) object;
+        return Objects.equals(id, payment.id);
+    }
 }

@@ -57,8 +57,8 @@ public class FilmCategory extends AbstractEntity {
 
         @Override
         public boolean equals(Object object) {
-            if (object == null || this.getClass() != object.getClass()) return false;
-            if (this == object) return true;
+            if (!super.equals(object))
+                return false;
             Id id = (Id) object;
             return Objects.equals(filmId, id.filmId)
                     && Objects.equals(categoryId, id.categoryId);

@@ -46,14 +46,15 @@ public class Rental extends AbstractEntity {
     private Staff staff;
 
     @Override
-    public boolean equals(Object object) {
-        if (!super.equals(object)) return false;
-        Rental rental = (Rental) object;
-        return Objects.equals(id, rental.id);
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), id);
     }
 
     @Override
-    public int hashCode() {
-        return Objects.hash(super.hashCode(), id);
+    public boolean equals(Object object) {
+        if (!super.equals(object))
+            return false;
+        Rental rental = (Rental) object;
+        return Objects.equals(id, rental.id);
     }
 }

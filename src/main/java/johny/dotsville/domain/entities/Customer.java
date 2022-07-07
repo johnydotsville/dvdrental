@@ -16,6 +16,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 @Entity
 @Table(name = "customer")
@@ -59,5 +60,18 @@ public class Customer extends AbstractEntity {
     @Override
     public String toString() {
         return String.format("%s %s", firstName, lastName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), id);
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        if (!super.equals(object))
+            return false;
+        Customer customer = (Customer) object;
+        return Objects.equals(id, customer.id);
     }
 }

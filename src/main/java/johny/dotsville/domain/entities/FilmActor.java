@@ -37,8 +37,8 @@ public class FilmActor extends AbstractEntity {
 
         @Override
         public boolean equals(Object object) {
-            if (this == object) return true;
-            if (object == null || object.getClass() != this.getClass()) return false;
+            if (!super.equals(object))
+                return false;
             Id id = (Id) object;
             return Objects.equals(actorId, id.actorId)
                 && Objects.equals(filmId, id.filmId);

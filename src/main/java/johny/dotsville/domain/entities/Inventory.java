@@ -13,6 +13,8 @@ import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.Objects;
+
 // Связь фильмов с магазинами
 // Какие фильмы в каких магазинах есть
 // TODO: подумать, стоит ли делать в фильмах список магазинов, а в магазине список фильмов
@@ -33,4 +35,17 @@ public class Inventory extends AbstractEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "store_id")
     private Store store;
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), id);
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        if (!super.equals(object))
+            return false;
+        Inventory inventory = (Inventory) object;
+        return Objects.equals(id, inventory.id);
+    }
 }

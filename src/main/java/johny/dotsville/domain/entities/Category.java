@@ -33,14 +33,15 @@ public class Category extends AbstractEntity {
     private Set<FilmCategory> filmCategory = new HashSet<>();
 
     @Override
-    public boolean equals(Object object) {
-        if (!super.equals(object)) return false;
-        Category category = (Category) object;
-        return Objects.equals(this.id, category.id);
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), id);
     }
 
     @Override
-    public int hashCode() {
-        return Objects.hash(super.hashCode(), id, name);
+    public boolean equals(Object object) {
+        if (!super.equals(object))
+            return false;
+        Category category = (Category) object;
+        return Objects.equals(id, category.id);
     }
 }

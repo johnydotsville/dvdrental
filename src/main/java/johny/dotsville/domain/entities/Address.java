@@ -13,6 +13,8 @@ import jakarta.persistence.Table;
 import lombok.Setter;
 import lombok.Getter;
 
+import java.util.Objects;
+
 @Entity
 @Table(name = "address")
 @Getter @Setter
@@ -50,5 +52,18 @@ public class Address extends AbstractEntity {
                 address2,
                 district,
                 phone);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), id);
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        if (!super.equals(object))
+            return false;
+        Address address = (Address) object;
+        return Objects.equals(id, address.id);
     }
 }

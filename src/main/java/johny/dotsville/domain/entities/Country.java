@@ -39,14 +39,15 @@ public class Country extends AbstractEntity {
     }
 
     @Override
-    public boolean equals(Object object) {
-        if (!super.equals(object)) return false;
-        Country country = (Country) object;
-        return Objects.equals(id, country.id);
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), id);
     }
 
     @Override
-    public int hashCode() {
-        return Objects.hash(super.hashCode(), id, name);
+    public boolean equals(Object object) {
+        if (!super.equals(object))
+            return false;
+        Country country = (Country) object;
+        return Objects.equals(id, country.id);
     }
 }

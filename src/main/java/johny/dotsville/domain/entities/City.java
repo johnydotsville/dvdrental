@@ -39,14 +39,15 @@ public class City extends AbstractEntity {
     }
 
     @Override
-    public boolean equals(Object object) {
-        if (!super.equals(object)) return false;
-        City city = (City) object;
-        return Objects.equals(id, city.id);
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), id);
     }
 
     @Override
-    public int hashCode() {
-        return Objects.hash(super.hashCode(), id, name);
+    public boolean equals(Object object) {
+        if (!super.equals(object))
+            return false;
+        City city = (City) object;
+        return Objects.equals(id, city.id);
     }
 }

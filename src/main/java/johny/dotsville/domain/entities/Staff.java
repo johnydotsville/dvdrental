@@ -13,6 +13,8 @@ import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.Objects;
+
 @Entity
 @Table(name = "staff")
 @Getter  @Setter
@@ -55,5 +57,18 @@ public class Staff extends AbstractEntity {
     @Override
     public String toString() {
         return String.format("%s %s", firstName, lastName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), id);
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        if (!super.equals(object))
+            return false;
+        Staff staff = (Staff) object;
+        return Objects.equals(id, staff.id);
     }
 }
