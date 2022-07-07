@@ -23,11 +23,16 @@ public class Store extends AbstractEntity {
     @GeneratedValue(generator = "store_id_gen", strategy = GenerationType.SEQUENCE)
     private Long id;
 
-    @OneToOne(fetch = FetchType.EAGER)
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "manager_staff_id")
     private Staff manager;
 
-    @OneToOne(fetch = FetchType.EAGER)
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "address_id")
     private Address address;
+
+    @Override
+    public String toString() {
+        return address.toString();
+    }
 }

@@ -29,14 +29,14 @@ public class Staff extends AbstractEntity {
     @Column(name = "last_name")
     private String lastName;
 
-    @OneToOne(fetch = FetchType.EAGER)
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "address_id")
     private Address address;
 
     @Column(name = "email")
     private String email;
 
-    @OneToOne(fetch = FetchType.EAGER)
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "store_id")
     private Store store;
 
@@ -51,4 +51,9 @@ public class Staff extends AbstractEntity {
 
     // TODO: Пока можно жить и без этого
     private byte[] picture;
+
+    @Override
+    public String toString() {
+        return String.format("%s %s", firstName, lastName);
+    }
 }

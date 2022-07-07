@@ -33,7 +33,7 @@ public class Actor extends AbstractEntity {
     @Column(name = "last_name")
     private String lastName;
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "actor")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "actor")
     private Set<FilmActor> filmActor = new HashSet<>();
 
     @Override

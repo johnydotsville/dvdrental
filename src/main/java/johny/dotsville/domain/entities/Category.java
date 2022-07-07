@@ -29,7 +29,7 @@ public class Category extends AbstractEntity {
     @Column(name = "name")
     private String name;
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "category")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "category")
     private Set<FilmCategory> filmCategory = new HashSet<>();
 
     @Override

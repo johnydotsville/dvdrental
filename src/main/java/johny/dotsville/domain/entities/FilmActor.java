@@ -20,11 +20,11 @@ public class FilmActor extends AbstractEntity {
     @EmbeddedId
     private Id id = new Id();
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "film_id", insertable = false, updatable = false)
     private Film film;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "actor_id", insertable = false, updatable = false)
     private Actor actor;
 

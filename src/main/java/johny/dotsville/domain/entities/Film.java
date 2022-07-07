@@ -38,7 +38,7 @@ public class Film extends AbstractEntity {
     @Column(name = "release_year")
     private Year releaseYear;
 
-    @OneToOne(fetch = FetchType.EAGER)
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "language_id")
     private Language language;
 
@@ -63,10 +63,10 @@ public class Film extends AbstractEntity {
     @Column(name = "fulltext")
     private String fulltext;
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "film")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "film")
     private Set<FilmCategory> filmCategory = new HashSet<>();
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "film")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "film")
     private Set<FilmActor> filmActor = new HashSet<>();
 
     @Override
@@ -79,5 +79,10 @@ public class Film extends AbstractEntity {
     @Override
     public int hashCode() {
         return Objects.hash(super.hashCode(), id, title);
+    }
+
+    @Override
+    public String toString() {
+        return title;
     }
 }

@@ -27,7 +27,7 @@ public class Customer extends AbstractEntity {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "customer_id_gen")
     private Long id;
 
-    @OneToOne(fetch = FetchType.EAGER)
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "store_id")
     private Store store;
 
@@ -40,7 +40,7 @@ public class Customer extends AbstractEntity {
     @Column(name = "email")
     private String email;
 
-    @OneToOne(fetch = FetchType.EAGER)
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "address_id")
     private Address address;
 
@@ -55,4 +55,9 @@ public class Customer extends AbstractEntity {
 
     @Column(name = "active")
     private int active;
+
+    @Override
+    public String toString() {
+        return String.format("%s %s", firstName, lastName);
+    }
 }
