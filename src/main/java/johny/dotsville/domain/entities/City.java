@@ -24,7 +24,7 @@ public class City extends AbstractEntity {
     @Column(name = "city_id")
     @SequenceGenerator(name = "city_id_gen", sequenceName = "city_city_id_seq", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "city_id_gen")
-    private Long id;
+    private long id;
 
     @Column(name = "city")
     private String name;

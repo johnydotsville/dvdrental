@@ -26,7 +26,7 @@ public class Customer extends AbstractEntity {
     @Column(name = "customer_id")
     @SequenceGenerator(name = "customer_id_gen", sequenceName = "customer_customer_id_seq", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "customer_id_gen")
-    private Long id;
+    private long id;
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "store_id")

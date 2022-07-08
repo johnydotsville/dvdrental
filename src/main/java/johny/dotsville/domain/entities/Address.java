@@ -23,7 +23,7 @@ public class Address extends AbstractEntity {
     @SequenceGenerator(name = "address_id_gen", sequenceName = "address_address_id_seq", allocationSize = 1)
     @GeneratedValue(generator = "address_id_gen", strategy = GenerationType.SEQUENCE)
     @Column(name = "address_id")
-    private Long id;
+    private long id;
 
     @Column(name = "address")
     private String address;

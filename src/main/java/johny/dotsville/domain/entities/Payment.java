@@ -25,7 +25,7 @@ public class Payment {
     @Column(name = "payment_id")
     @SequenceGenerator(name = "payment_id_gen", sequenceName = "payment_payment_id_seq", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "payment_id_gen")
-    private Long id;
+    private long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "customer_id")

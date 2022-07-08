@@ -23,7 +23,7 @@ public class Store extends AbstractEntity {
     @Column(name = "store_id")
     @SequenceGenerator(name = "store_id_gen", sequenceName = "store_store_id_seq", allocationSize = 1)
     @GeneratedValue(generator = "store_id_gen", strategy = GenerationType.SEQUENCE)
-    private Long id;
+    private long id;
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "manager_staff_id")

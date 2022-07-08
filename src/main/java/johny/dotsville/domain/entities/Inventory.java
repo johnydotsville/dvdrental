@@ -26,7 +26,7 @@ public class Inventory extends AbstractEntity {
     @Column(name = "inventory_id")
     @SequenceGenerator(name = "inventory_id_gen", sequenceName = "inventory_inventory_id_seq", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "inventory_id_gen")
-    private Long id;
+    private long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "film_id")

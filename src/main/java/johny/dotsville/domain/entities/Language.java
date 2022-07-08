@@ -20,7 +20,7 @@ public class Language extends AbstractEntity {
     @Column(name = "language_id")
     @SequenceGenerator(name = "language_id_gen", sequenceName = "language_language_id_seq", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "language_id_gen")
-    private Long id;
+    private long id;
 
     @Column(name = "name")
     private String name;

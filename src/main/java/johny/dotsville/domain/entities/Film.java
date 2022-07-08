@@ -27,7 +27,7 @@ public class Film extends AbstractEntity {
     @Column(name = "film_id")
     @SequenceGenerator(name = "film_id_gen", sequenceName = "film_film_id_seq", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "film_id_gen")
-    private Long id;
+    private long id;
 
     @Column(name = "title")
     private String title;

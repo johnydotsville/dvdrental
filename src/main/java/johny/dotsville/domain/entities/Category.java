@@ -24,7 +24,7 @@ public class Category extends AbstractEntity {
     @Column(name = "category_id")
     @SequenceGenerator(name = "category_id_gen", sequenceName = "category_category_id_seq", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "category_id_gen")
-    private Long id;
+    private long id;
 
     @Column(name = "name")
     private String name;

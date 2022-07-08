@@ -23,7 +23,7 @@ public class Staff extends AbstractEntity {
     @Column(name = "staff_id")
     @SequenceGenerator(name = "staff_id_gen", sequenceName = "staff_staff_id_seq", allocationSize = 1)
     @GeneratedValue(generator = "staff_id_gen", strategy = GenerationType.SEQUENCE)
-    private Long id;
+    private long id;
 
     @Column(name = "first_name")
     private String firstName;

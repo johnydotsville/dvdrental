@@ -25,7 +25,7 @@ public class Rental extends AbstractEntity {
     @Column(name = "rental_id")
     @SequenceGenerator(name = "rental_id_gen", sequenceName = "rental_rental_id_seq", allocationSize = 1)
     @GeneratedValue(generator = "rental_id_gen", strategy = GenerationType.SEQUENCE)
-    private Long id;
+    private long id;
 
     @Column(name = "rental_date")
     private LocalDateTime rentalDate;
