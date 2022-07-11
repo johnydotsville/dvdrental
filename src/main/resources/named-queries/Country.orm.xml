@@ -3,9 +3,38 @@
                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                  xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_2_0.xsd" version="2.0">
 
-    <named-query name="GET_COUNTRY_BY_NAME" >
+    <named-query name="GET_COUNTRY_BY_EXACT_NAME" >
         <query>select c from johny.dotsville.domain.entities.Country c
             where c.name = :name</query>
+    </named-query>
+
+    <named-query name="UPDATE_COUNTRY" >
+        <query>update johny.dotsville.domain.entities.Country c
+            set c.name = :newName
+            where c.name = :name</query>
+    </named-query>
+
+    <named-query name="GET_COUNTRY_BY_LIKE_NAME" >
+        <query>select c from johny.dotsville.domain.entities.Country c
+            where c.name like :name</query>
+    </named-query>
+
+    <named-query name="get_country_cities">
+        <query>
+            select ct City
+            from johny.dotsville.domain.entities.City ct
+                inner join ct.country cr
+            where cr.name = :name
+        </query>
+    </named-query>
+
+    <named-query name="get_country_cities2">
+        <query>
+            select ct City
+            from johny.dotsville.domain.entities.City ct
+            inner join ct.country cr
+            on cr.name = :name
+        </query>
     </named-query>
 
 </entity-mappings>
